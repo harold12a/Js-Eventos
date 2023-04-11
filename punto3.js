@@ -103,18 +103,21 @@ window.borrarNota = function (id) {
 //buscar el elemento dentro del array y cambiar la propiedad realizada por el valor 
 //contrario al que ya posee y volver a pintar los elementos en pantalla para verlo reflejado.
 
-// function marcarRealizada (id){
-//     notas = notas.find((nota)=>nota.id === id)
-// console.log(notas);
-//     if( notas){
-//         notas.realizada = !notas.realizada
-//         pintarNotas()
+function marcarRealizada (id){
+    let notaEncontrada = notas.find((nota)=>nota.id === id);
+console.log(notas);
+    if( notaEncontrada){
+        notaEncontrada.realizada = !notaEncontrada.realizada;
+        pintarNotas();
+    }else{
+        console.log(`no se encontraron notas con el ${id}`);
+    }
+}
 
-//     }
-   
-// }
+// ejecucion de invertir la realizada de una nota de true o false
+// marcarRealizada(1)
 
-// marcarRealizada()
+
 
 
 
