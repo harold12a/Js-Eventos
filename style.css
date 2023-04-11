@@ -34,3 +34,12 @@ h1 {
 .btn-danger {
     margin-left: 25%;
 }
+
+.realizadas{
+    display: flex;
+    justify-content: center;
+    text-transform: uppercase;
+    flex-direction: column;
+    margin-left: 30%;
+    margin-right: 30%;
+}
