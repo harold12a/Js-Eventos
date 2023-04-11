@@ -1,0 +1,36 @@
+/* *{
+    margin: 0;
+    padding: 0;
+} */
+
+.container-note {
+    background-color: yellow;
+    border: 25px solid yellow;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    margin-left: 20%;
+    margin-right: 20%;
+}
+
+h1 {
+    display: flex;
+    justify-content: center;
+    text-transform: uppercase;
+}
+
+.cards {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    
+}
+.cards .card {
+    margin-bottom: 10px;
+}
+
+
+.btn-danger {
+    margin-left: 25%;
+}
