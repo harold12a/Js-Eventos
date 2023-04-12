@@ -1,5 +1,5 @@
 // a. Crear un array donde vamos a guardar las notas
-//b. Agregar un par de notas de prueba como la siguiente
+// b. Agregar un par de notas de prueba como la siguiente
 
 let notas = [
     { id: 1, titulo: 'comprar el pan', texto: 'comprar el pan en la panaderia', realizada: false },
@@ -8,7 +8,7 @@ let notas = [
 ]
 
 
-//c. Crear una variable idGlobal e inicializala en el mismo valor del ultimo id que creaste manualmente, usaremos esto como control de las notas.
+// c. Crear una variable idGlobal e inicializala en el mismo valor del ultimo id que creaste manualmente, usaremos esto como control de las notas.
 
 let idGlobal = 3;
 
@@ -30,18 +30,17 @@ function pintarNotas(notas) {
 
         notaDiv.innerHTML = `
         <div class="card" style="width: 18rem;">
-  <div class="card-body">
-  <div class="form-check">
-  <input class="form-check-input"  type="checkbox" value="" id="flexCheckIndeterminate" onClick="marcarRealizada(${nota.id})"  ${nota.realizada ? "checked" : ""}>
-  <label class="form-check-label" for="flexCheckIndeterminate">
-  <h5 class="card-title">${nota.titulo}</h5>
-  </label>
-</div>
-    <p class="card-text">${nota.texto}</p>
-    <a href="#" class="btn btn-danger" onclick="borrarNota(${nota.id})" >borrar nota</a>
-  </div>
-</div>
-    `;
+            <div class="card-body">
+                <div class="form-check">
+                    <input class="form-check-input"  type="checkbox" value="" id="flexCheckIndeterminate" onClick="marcarRealizada(${nota.id})"  ${nota.realizada ? "checked" : ""}>
+                    <label class="form-check-label" for="flexCheckIndeterminate">
+                        <h5 class="card-title">${nota.titulo}</h5>
+                    </label>
+                </div>
+                <p class="card-text">${nota.texto}</p>
+                <a href="#" class="btn btn-danger" onclick="borrarNota(${nota.id})" >borrar nota</a>
+            </div>
+        </div>`;
         notasContainer.appendChild(notaDiv);
     })
 }
@@ -95,8 +94,8 @@ window.clearNote = function () {
 window.borrarNota = function (id) {
 
     notas = notas.filter(nota => nota.id !== id);
+    pintarNotas();
 
-    pintarNotas()
 }
 
 //n. Crear la función marcarRealizada la cual recibirá como parámetro un id y deberá 
@@ -105,7 +104,7 @@ window.borrarNota = function (id) {
 
 function marcarRealizada(id) {
     let notaEncontrada = notas.find((nota) => nota.id === id);
-    console.log(notas);
+    // console.log(notas);
     if (notaEncontrada) {
         notaEncontrada.realizada = !notaEncontrada.realizada;
         pintarNotas();
@@ -119,52 +118,51 @@ function marcarRealizada(id) {
 
 //p. Crear una función que filtre por el estado realizada, la función deberá recibir como 
 //parámetro 1 array y devolver lo mismo pero filtrado por los elementos que tengan true en la propiedad realizada.
+function filtradoRealizada(notas){
+    notasFiltradas = notas.filter(nota => nota.realizada == true);
+    return notasFiltradas;
+}
 
-// function filtradaRealizada() {
+// console.log(filtradoRealizada(notas));
 
-//     let checkRealizada = document.getElementById('checkRealizada')
-
-//     checkRealizada.addEventListener('input', () => {
-
-//         const notaFiltrada = notas.filter(nota => nota.realizada === checkRealizada.checked)
-
-//         pintarNotas(notaFiltrada)
-
-//     })
-// }
-
-// checkRealizada.onchange = () => {
-//     checkRealizada.removeEventListener('input', filtradaRealizada);
-//     checkRealizada.addEventListener('input', filtradaRealizada);
-//     filtradaRealizada();
-// };
-
-//q. Crear una función que filtre por texto, la cual recibirá como parámetro un array de 
-//notas y un texto. La misma deberá devolver un array filtrado por los elementos 
-//que incluyan el texto ingresado en el titulo o el texto de la nota. De no recibir texto deberá retornar el array recibido.
+//q. Crear una función que filtre por texto, la cual recibirá como parámetro un array de
+// notas y un texto. La misma deberá devolver un array filtrado por los elementos
+// que incluyan el texto ingresado en el titulo o el texto de la nota. De no recibir texto deberá retornar el array recibido.
 const filtro_texto = document.getElementById('filtro_texto');
 
 filtro_texto.addEventListener('keyup',()=>{
-filtrarPorTexto(notas)
+    filtrarPorTexto(notas)
 })
 
 function filtrarPorTexto(notas) {
     // notasContainer.innerHTML = '';
 
     console.log('escribiendo');
-      const texto = filtro_texto.value;
-      const notasFiltradas = notas.filter(nota => 
+    const texto = filtro_texto.value;
+    const notasFiltradas = notas.filter(nota =>
         nota.titulo.includes(texto) || nota.texto.includes(texto)
-      );
+    );
       console.log(notasFiltradas);
-  
+
       pintarNotas(notasFiltradas);
-  
-    
+
   }
 
+// r. Al cambiar el texto del input de búsqueda o cambiar el valor del checkbox se
+// deberá ver reflejado en pantalla el resultado de los filtros antes mencionados.
+// En ambos casos se deben contemplar los estados de los 2 filtros para poder tener un
+// resultado coherente con lo que se ve en pantalla. Si filtro por texto deberá
+// contemplar si el checkbox de realizadas esta o no checkeado, y si filtro por
+// realizadas se deberá contemplar el texto que posea el input de búsqueda.
 
- 
+// r-a. filtrado realizada
 
+  let checkRealizada = document.getElementById('checkRealizada');
 
-
+  checkRealizada.onchange = () => {
+      let contenedor = document.getElementById('note-container');
+      contenedor.innerHTML = '';
+      let checkRealizadaValue = checkRealizada.checked;
+      notasFiltradas = notas.filter(nota => nota.realizada == checkRealizadaValue);
+      pintarNotas(notasFiltradas);
+  };
