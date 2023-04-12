@@ -38,10 +38,12 @@ h1, h2 {
     flex-wrap: wrap;
     background-color: rgb(255, 255, 162);
     padding: 2%;
+    gap: 0.5rem;
 }
 
 .cards .card {
     margin-bottom: 10px;
+    min-height: 25vh;
 }
 
 
