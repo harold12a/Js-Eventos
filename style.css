@@ -10,6 +10,23 @@ h1, h2 {
     text-transform: uppercase;
 }
 
+/* ------ index ------ */
+
+.row > h1,
+.puntos {
+    margin-top: 1rem;
+}
+
+.puntos {
+    display: flex;
+    justify-content: space-between;
+    gap: 0.5rem;
+}
+
+.puntos > .card {
+    background-color: lightgray;
+}
+
 /* ------ punto1 ------ */
 
 .div-btn-calcular {
