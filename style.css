@@ -10,6 +10,36 @@ h1, h2 {
     text-transform: uppercase;
 }
 
+/* ------ punto2 ------ */
+.converter-div {
+    display: flex;
+    align-items: center;
+    padding-top: 5%;
+}
+
+form.converter {
+    display: flex;
+    flex-direction: column;
+    background-color: darkgray;
+    color: rgb(84, 84, 84);
+    padding: 5%;
+}
+
+form.converter > div {
+    display: flex;
+    gap: 0.5rem;
+}
+
+form.converter input {
+    border: none;
+    border-right: 1px solid gray;
+    background-color: darkgray;
+}
+
+form.converter input:focus {
+    background-color: lightgray;
+}
+
 /* ------ punto3 ------ */
 
 .keep {
