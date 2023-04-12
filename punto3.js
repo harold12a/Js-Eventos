@@ -14,12 +14,12 @@ let idGlobal = 3;
 
 // e. Crear una función que pinte las notas en forma de tarjetas dentro del div contenedor.
 
-function pintarNotas() {
+function pintarNotas(notas) {
     let notasContainer = document.getElementById('note-container');
     //k. Agregar una validación en la función que pinta las tarjetas, la cual deberá mostrar 
-//un mensaje dentro del div contenedor que diga NO HAY NOTAS PARA MOSTRAR 
-//en caso de no haber elementos en el array 
-    if(notas.length === 0){
+    //un mensaje dentro del div contenedor que diga NO HAY NOTAS PARA MOSTRAR 
+    //en caso de no haber elementos en el array 
+    if (notas.length === 0) {
         notasContainer.innerHTML = '<div class="alert alert-danger" role="alert">NO HAY NOTAS PARA MOSTRAR</div>';
         return
     }
@@ -32,7 +32,7 @@ function pintarNotas() {
         <div class="card" style="width: 18rem;">
   <div class="card-body">
   <div class="form-check">
-  <input class="form-check-input"  type="checkbox" value="" id="flexCheckIndeterminate" onClick="marcarRealizada(${nota.id})"  ${nota.realizada?  "checked": ""}>
+  <input class="form-check-input"  type="checkbox" value="" id="flexCheckIndeterminate" onClick="marcarRealizada(${nota.id})"  ${nota.realizada ? "checked" : ""}>
   <label class="form-check-label" for="flexCheckIndeterminate">
   <h5 class="card-title">${nota.titulo}</h5>
   </label>
@@ -46,7 +46,7 @@ function pintarNotas() {
     })
 }
 
-pintarNotas()
+pintarNotas(notas)
 
 //g. Crear una función agregarNota la cual necesitara 2 parametros: titulo y texto. 
 //La cual deberá crear un objeto de tipo nota como en el punto b y agregarlo al array de notas
@@ -93,7 +93,7 @@ window.clearNote = function () {
 }
 
 window.borrarNota = function (id) {
-   
+
     notas = notas.filter(nota => nota.id !== id);
 
     pintarNotas()
@@ -103,13 +103,13 @@ window.borrarNota = function (id) {
 //buscar el elemento dentro del array y cambiar la propiedad realizada por el valor 
 //contrario al que ya posee y volver a pintar los elementos en pantalla para verlo reflejado.
 
-function marcarRealizada (id){
-    let notaEncontrada = notas.find((nota)=>nota.id === id);
-console.log(notas);
-    if( notaEncontrada){
+function marcarRealizada(id) {
+    let notaEncontrada = notas.find((nota) => nota.id === id);
+    console.log(notas);
+    if (notaEncontrada) {
         notaEncontrada.realizada = !notaEncontrada.realizada;
         pintarNotas();
-    }else{
+    } else {
         console.log(`no se encontraron notas con el ${id}`);
     }
 }
@@ -117,8 +117,54 @@ console.log(notas);
 // ejecucion de invertir la realizada de una nota de true o false
 // marcarRealizada(1)
 
+//p. Crear una función que filtre por el estado realizada, la función deberá recibir como 
+//parámetro 1 array y devolver lo mismo pero filtrado por los elementos que tengan true en la propiedad realizada.
+
+// function filtradaRealizada() {
+
+//     let checkRealizada = document.getElementById('checkRealizada')
+
+//     checkRealizada.addEventListener('input', () => {
+
+//         const notaFiltrada = notas.filter(nota => nota.realizada === checkRealizada.checked)
+
+//         pintarNotas(notaFiltrada)
+
+//     })
+// }
+
+// checkRealizada.onchange = () => {
+//     checkRealizada.removeEventListener('input', filtradaRealizada);
+//     checkRealizada.addEventListener('input', filtradaRealizada);
+//     filtradaRealizada();
+// };
+
+//q. Crear una función que filtre por texto, la cual recibirá como parámetro un array de 
+//notas y un texto. La misma deberá devolver un array filtrado por los elementos 
+//que incluyan el texto ingresado en el titulo o el texto de la nota. De no recibir texto deberá retornar el array recibido.
+const filtro_texto = document.getElementById('filtro_texto');
+
+filtro_texto.addEventListener('keyup',()=>{
+filtrarPorTexto(notas)
+})
+
+function filtrarPorTexto(notas) {
+    // notasContainer.innerHTML = '';
+
+    console.log('escribiendo');
+      const texto = filtro_texto.value;
+      const notasFiltradas = notas.filter(nota => 
+        nota.titulo.includes(texto) || nota.texto.includes(texto)
+      );
+      console.log(notasFiltradas);
+  
+      pintarNotas(notasFiltradas);
+  
+    
+  }
 
 
+ 
 
 
 
