@@ -10,6 +10,14 @@ h1, h2 {
     text-transform: uppercase;
 }
 
+/* ------ punto1 ------ */
+
+.div-btn-calcular {
+    display:flex;
+    justify-content: center;
+    margin-top: 0.5rem;
+}
+
 /* ------ punto2 ------ */
 .converter-div {
     display: flex;
@@ -17,7 +25,8 @@ h1, h2 {
     padding-top: 5%;
 }
 
-form.converter {
+form.converter,
+form.imc {
     display: flex;
     flex-direction: column;
     background-color: darkgray;
@@ -25,7 +34,8 @@ form.converter {
     padding: 5%;
 }
 
-form.converter > div {
+form.converter > div,
+form.imc > div {
     display: flex;
     gap: 0.5rem;
 }
