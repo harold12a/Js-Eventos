@@ -38,7 +38,7 @@ function pintarNotas(notas) {
                     </label>
                 </div>
                 <p class="card-text">${nota.texto}</p>
-                <a href="#" class="btn btn-danger" onclick="borrarNota(${nota.id})" >borrar nota</a>
+                <a href="#" class="btn-keep" onclick="borrarNota(${nota.id})" >borrar nota</a>
             </div>
         </div>`;
         notasContainer.appendChild(notaDiv);

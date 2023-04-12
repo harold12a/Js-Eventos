@@ -1,14 +1,7 @@
-/* *{
+* {
     margin: 0;
     padding: 0;
-} */
-
-.container-note {
-    background-color: yellow;
-    border: 25px solid yellow;
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
+    box-sizing: border-box;
 }
 
 h1, h2 {
@@ -17,11 +10,34 @@ h1, h2 {
     text-transform: uppercase;
 }
 
+/* ------ punto3 ------ */
+
+.keep {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+}
+
+/*for filters*/
+.realizadas {
+    display: flex;
+    justify-content: center;
+    text-transform: uppercase;
+    flex-direction: column;
+
+    width: 60%;
+}
+
+/*main container*/
 .cards {
     display: flex;
     align-items: center;
     justify-content: space-around;
     flex-wrap: wrap;
+    background-color: rgb(255, 255, 162);
+    padding: 2%;
 }
 
 .cards .card {
@@ -29,14 +45,39 @@ h1, h2 {
 }
 
 
-.btn-danger {
-    margin-left: 25%;
+.btn-keep {
+    background-color: rgb(255, 255, 120);
+    color: black;
+    border: transparent;
+    border-radius: 10%;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
 }
 
-.realizadas{
+.form-check-input:checked[type=checkbox]  {
+    background-color: gold;
+    border-color: lightgray;
+}
+
+/*form*/
+.container-note {
     display: flex;
-    justify-content: center;
-    text-transform: uppercase;
+    justify-content:space-between;
     flex-direction: column;
-  
+
+    width: 80%;
+}
+
+.container-note > div {
+    display: flex;
+    flex-direction: column;
+    align-items:center;
+    gap: 0.1rem;
+    padding-top: 1rem;
+}
+
+.container-note > div > button {
+    width: 50%;
+    background-color: rgb(255, 255, 120);
+    border: transparent;
 }
