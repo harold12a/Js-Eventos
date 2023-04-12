@@ -72,8 +72,8 @@ window.saveNote = function () {
     let texto = noteText.value.trim()
 
     if (titulo !== '' && texto !== '') {
-        agregarNota(titulo, texto)
-        pintarNotas();
+        agregarNota(titulo, texto);
+        pintarNotas(notas);
         noteTitle.value = '';
         noteText.value = '';
     } else {
@@ -94,7 +94,7 @@ window.clearNote = function () {
 window.borrarNota = function (id) {
 
     notas = notas.filter(nota => nota.id !== id);
-    pintarNotas();
+    pintarNotas(notas);
 
 }
 
