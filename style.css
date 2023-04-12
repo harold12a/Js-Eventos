@@ -1,14 +1,7 @@
-/* *{
+* {
     margin: 0;
     padding: 0;
-} */
-
-.container-note {
-    background-color: yellow;
-    border: 25px solid yellow;
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
+    box-sizing: border-box;
 }
 
 h1, h2 {
@@ -17,26 +10,133 @@ h1, h2 {
     text-transform: uppercase;
 }
 
+/* ------ index ------ */
+
+.row > h1,
+.puntos {
+    margin-top: 1rem;
+}
+
+.puntos {
+    display: flex;
+    justify-content: space-between;
+    gap: 0.5rem;
+}
+
+.puntos > .card {
+    background-color: lightgray;
+}
+
+/* ------ punto1 ------ */
+
+.div-btn-calcular {
+    display:flex;
+    justify-content: center;
+    margin-top: 0.5rem;
+}
+
+/* ------ punto2 ------ */
+.converter-div {
+    display: flex;
+    align-items: center;
+    padding-top: 5%;
+}
+
+form.converter,
+form.imc {
+    display: flex;
+    flex-direction: column;
+    background-color: darkgray;
+    color: rgb(84, 84, 84);
+    padding: 5%;
+}
+
+form.converter > div,
+form.imc > div {
+    display: flex;
+    gap: 0.5rem;
+}
+
+form.converter input {
+    border: none;
+    border-right: 1px solid gray;
+    background-color: darkgray;
+}
+
+form.converter input:focus {
+    background-color: lightgray;
+}
+
+/* ------ punto3 ------ */
+
+.keep {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+}
+
+/*for filters*/
+.realizadas {
+    display: flex;
+    justify-content: center;
+    text-transform: uppercase;
+    flex-direction: column;
+
+    width: 60%;
+}
+
+/*main container*/
 .cards {
     display: flex;
     align-items: center;
     justify-content: space-around;
     flex-wrap: wrap;
+    background-color: rgb(255, 255, 162);
+    padding: 2%;
+    gap: 0.5rem;
 }
 
 .cards .card {
     margin-bottom: 10px;
+    min-height: 25vh;
 }
 
 
-.btn-danger {
-    margin-left: 25%;
+.btn-keep {
+    background-color: rgb(255, 255, 120);
+    color: black;
+    border: transparent;
+    border-radius: 10%;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
 }
 
-.realizadas{
+.form-check-input:checked[type=checkbox]  {
+    background-color: gold;
+    border-color: lightgray;
+}
+
+/*form*/
+.container-note {
     display: flex;
-    justify-content: center;
-    text-transform: uppercase;
+    justify-content:space-between;
     flex-direction: column;
-  
+
+    width: 80%;
+}
+
+.container-note > div {
+    display: flex;
+    flex-direction: column;
+    align-items:center;
+    gap: 0.1rem;
+    padding-top: 1rem;
+}
+
+.container-note > div > button {
+    width: 50%;
+    background-color: rgb(255, 255, 120);
+    border: transparent;
 }
