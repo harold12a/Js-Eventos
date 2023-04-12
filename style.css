@@ -60,11 +60,11 @@ form.imc > div {
 form.converter input {
     border: none;
     border-right: 1px solid gray;
-    background-color: darkgray;
+    background-color: white;
 }
 
 form.converter input:focus {
-    background-color: lightgray;
+    background-color: white
 }
 
 /* ------ punto3 ------ */
