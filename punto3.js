@@ -43,18 +43,20 @@ function pintarNotas(notas) {
         </div>`;
         notasContainer.appendChild(notaDiv);
     })
+    console.log(notas);
 }
 
-pintarNotas(notas)
+pintarNotas(notas);
 
-//g. Crear una función agregarNota la cual necesitara 2 parametros: titulo y texto. 
+//g. Crear una función agregarNota la cual necesitara 2 parametros: titulo y texto.
 //La cual deberá crear un objeto de tipo nota como en el punto b y agregarlo al array de notas
 
 function agregarNota(titulo, texto) {
     let nuevaNota = {
         id: ++idGlobal,
         titulo: titulo,
-        texto: texto
+        texto: texto,
+        realizada: false
     }
     notas.push(nuevaNota);
 }
@@ -68,14 +70,15 @@ window.saveNote = function () {
     let noteTitle = document.getElementById('note-title');
     let noteText = document.getElementById('note-text');
 
-    let titulo = noteTitle.value.trim()
-    let texto = noteText.value.trim()
+    let titulo = noteTitle.value.trim();
+    let texto = noteText.value.trim();
 
     if (titulo !== '' && texto !== '') {
         agregarNota(titulo, texto);
         pintarNotas(notas);
         noteTitle.value = '';
         noteText.value = '';
+        console.log("a");
     } else {
         alert('ingresa algun texto en los campos')
     }
@@ -107,7 +110,7 @@ function marcarRealizada(id) {
     // console.log(notas);
     if (notaEncontrada) {
         notaEncontrada.realizada = !notaEncontrada.realizada;
-        pintarNotas();
+        pintarNotas(notas);
     } else {
         console.log(`no se encontraron notas con el ${id}`);
     }
